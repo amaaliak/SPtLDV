@@ -1,0 +1,29 @@
+# =====================================================================
+# ALTERNATIF: deploy sebagai Cloudflare Worker mandiri (static assets +
+# API dalam satu Worker).  Deploy:  npm run deploy:worker
+# =====================================================================
+name = "pjbl-sptldv-worker"
+main = "worker/index.ts"
+compatibility_date = "2024-12-18"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pjbl-sptldv-db"
+database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "pjbl-sptldv-files"
+
+[vars]
+NAMA_APLIKASI = "PjBL SPtLDV — Tata Boga"
+ZONA_WAKTU = "Asia/Jakarta"
+
+[observability]
+enabled = true

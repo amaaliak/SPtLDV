@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-krem text-oranye-900 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04';
+  }
+  /* Target sentuh besar & mudah dijangkau di ponsel */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    @apply outline-none;
+  }
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply ring-2 ring-oranye-500 ring-offset-2 ring-offset-krem;
+  }
+}
+
+@layer components {
+  .kartu {
+    @apply rounded-2xl bg-white shadow-kartu border border-oranye-100;
+  }
+  .tombol {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold
+           transition active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px];
+  }
+  .tombol-utama {
+    @apply tombol bg-oranye-500 text-white hover:bg-oranye-600 shadow-lembut;
+  }
+  .tombol-kedua {
+    @apply tombol bg-white text-oranye-700 border-2 border-oranye-200 hover:bg-oranye-50;
+  }
+  .tombol-hijau {
+    @apply tombol bg-hijau-500 text-white hover:bg-hijau-600;
+  }
+  .tombol-halus {
+    @apply tombol bg-oranye-100 text-oranye-800 hover:bg-oranye-200;
+  }
+  .isian {
+    @apply w-full rounded-xl border-2 border-oranye-200 bg-white px-4 py-3 text-oranye-900
+           placeholder:text-oranye-300 focus:border-oranye-400 min-h-[44px];
+  }
+  .label {
+    @apply block text-sm font-semibold text-oranye-800 mb-1.5;
+  }
+  .lencana {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+}
+
+/* Bilah gulir lembut */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #fdba74;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-track {
+  background: #fff7ed;
+}
+
+/* Ruang aman untuk navigasi bawah (ponsel dengan gesture bar) */
+.aman-bawah {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem);
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 9999px;
+  background: #fed7aa;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: #f97316;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(124, 45, 18, 0.35);
+  cursor: pointer;
+}
+input[type='range']::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #f97316;
+  border: 3px solid #fff;
+  cursor: pointer;
+}
